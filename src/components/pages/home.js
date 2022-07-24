@@ -1,9 +1,14 @@
 import React from 'react'
 import laptops from "./../laptops";
+import MainSlider from "./../shared/MainSlider";
+import Navbar from "./../shared/Navbar";
 
-const home = () => {
+const Home = () => {
   return (
     <div>
+      <Navbar/>
+      All Laptops
+      <MainSlider/>
       {laptops.map((laptop) => (
          <h1 key={laptop.id}>{laptop.name}</h1>
       ))}
@@ -11,4 +16,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home
