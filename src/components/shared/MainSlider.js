@@ -1,6 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
 import SliderWrapper from "./_SlickSliderStyle";
+import image1 from "../../image/slider/no (11).jpg"
+import image2 from "../../image/slider/no (3).jpg"
+import image3 from "../../image/slider/no (5).jpg"
+import "./MainSlider.css"
 
 const MainSlider = () => {
   const settings = {
@@ -25,14 +29,14 @@ const MainSlider = () => {
     <div>
       <SliderWrapper>
         <Slider {...settings}>
-          <div className="testimoni--wrapper">
-            <p>Testimoni One</p>
+          <div className="slider_portion">
+            <img src="https://i.ibb.co/3Fr43sV/no-3.jpg" alt="" srcset="" />
           </div>
-          <div className="testimoni--wrapper">
-            <p>Testimoni Two</p>
+          <div className="slider_portion">
+            <img src="https://i.ibb.co/8dqGr5c/no-5.jpg" alt="" srcset="" />
           </div>
-          <div className="testimoni--wrapper">
-            <p>Testimoni Three</p>
+          <div className="slider_portion">
+            <img src="https://i.ibb.co/vJL5cCK/no-11.jpg" alt="" srcset="" />
           </div>
         </Slider>
       </SliderWrapper>

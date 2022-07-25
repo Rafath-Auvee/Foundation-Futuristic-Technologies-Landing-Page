@@ -84,6 +84,9 @@ const SliderWrapper = styled("div")`
     float: right;
   }
   .slick-slide img {
+    width:  100%;
+    height: 660px;
+    object-fit: fill;
     display: block;
   }
   .slick-slide.slick-loading img {

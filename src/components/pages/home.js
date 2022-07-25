@@ -1,17 +1,20 @@
 import React from 'react'
-import laptops from "./../laptops";
+
 import MainSlider from "./../shared/MainSlider";
 import Navbar from "./../shared/Navbar";
+import Card from "./../product/Card";
+
+import Laptops from "./../Laptops";
 
 const Home = () => {
+
+
   return (
     <div>
-      <Navbar/>
-      All Laptops
       <MainSlider/>
-      {laptops.map((laptop) => (
-         <h1 key={laptop.id}>{laptop.name}</h1>
-      ))}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  ">
+        {Laptops.slice(0,3).map((laptop, index) => <Card key={laptop.id} laptop={laptop} /> )}
+      </div>
     </div>
   )
 }
