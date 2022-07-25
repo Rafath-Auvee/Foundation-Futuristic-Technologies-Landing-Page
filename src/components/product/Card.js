@@ -1,12 +1,23 @@
 import React from "react";
-
+import { useNavigate, useParams } from "react-router-dom";
 
 const Card = (props) => {
   const { name, description, price, url } = props.laptop;
+
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const goProduct = async (id) => {
+    const baseURL = `http://localhost:3000/products/${id}`;
+    console.log(baseURL);
+    await navigate(`/products/${id}`, { state: props.laptop });
+    console.log("Product clicked");
+  };
+
   return (
     <div>
-      <div class="flex py-6 justify-center items-center">
-        <div class="w-72 bg-white drop-shadow-md rounded-lg h-fit">
+      <div class="flex m-20 py-6 justify-center items-center">
+        <div class="w-72 bg-white drop-shadow-md rounded-lg flex flex-col">
           <img src={url} class="object-cover h-48 rounded-tl-lg rounded-tr-lg" alt={description}/>
           <div class="px-5 py-3 space-y-2">
             <h3 class="text-lg text-black">{name}</h3>
