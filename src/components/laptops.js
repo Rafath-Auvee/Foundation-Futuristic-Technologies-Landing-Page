@@ -79,7 +79,7 @@ const Laptops = [
   },
   {
     _id: 7,
-    name: "Nienow, Kuhn and Simonis",
+    name: "The Lenovo IdeaPad Slim 3i",
     description:
       "The Lenovo IdeaPad Slim 3i Laptop comes with Intel Celeron N4020 Processor (4M Cache,1.10 GHz up to 2.80 GHz), 4GB DDR4 2400Mhz RAM, 1TB 5400rpm HDD, Intel UHD Graphics 600, and Windows 10 Home operating system. This laptop is also featured with a 2 Cell Li-Polymer battery, Full-size English (US) keyboard, 720p HD Webcam with Privacy Shutter, an SD card reader. Here, WiFi 2 x 2, 1 x 1 AC and Bluetooth Version 5.0 Network & Wireless Connectivity are available. In this laptop, it has 2 x USB 3.1 (Gen 1)USB 2.0, HDMI 1.4b, Headphone / mic combo, 2 x 1.5W speakers Dolby Audio Ports, Connectors & Slots and Finger Print Sensor. The Lenovo IdeaPad Slim 3i Laptop has 02 years International Limited Warranty (Terms & condition Apply As Per Lenovo).",
     price: 838,
@@ -92,7 +92,7 @@ const Laptops = [
   },
   {
     _id: 8,
-    name: "Murazik, Effertz and Ernser",
+    name: "Dell Inspiron 15 3510",
     description:
       "Dell Inspiron 15 3510 comes with Intel Celeron Dual Core N4020 (4MB Cache, 1.10 GHz Up To 2.80 GHz) Processor and Intel UHD Graphics 600. This Dell Inspiron 15 3510 featured 4GB DDR4 2400MHz, 1TB 5400RPM SATA HDD, that will provide you with responsive and stable performance. It is also designed with 15.6-inch HD (1366x768) Anti-Glare LED Backlight Narrow Border Display. This Dell Inspiron 15 3510 laptop will give you an excellent experience of lightning-fast responsiveness and hyper-efficient battery life that keeps you productive with a 4-Cell Battery, 54WHr (Integrated) battery. The Dell Inspiron 15 3510 Laptop has Pointing Device, Touchpad Keyboard with Numeric Keypad, an English US, an HD camera, Dual-array microphones. All-new Dell Inspiron 15 3510 Laptop has a mechanical camera shutter that protects against anyone invading your privacy or accidental embarrassments on video calls; so you can read, watch, or chat and attend any meeting, presentation or Conference also. The latest Dell Inspiron 15 3510 Laptop offers 2 Years Warranty (Battery & Adapter 01 Year).",
     price: 909,

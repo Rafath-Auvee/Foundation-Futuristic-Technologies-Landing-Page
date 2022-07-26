@@ -2,7 +2,18 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Card = (props) => {
-  const { _id, name, description, price, url } = props.laptop;
+  const {
+    _id,
+    name,
+    description,
+    price,
+    url,
+    MPN,
+    Model,
+    Processor,
+    RAM,
+    Display,
+  } = props.laptop;
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -16,60 +27,57 @@ const Card = (props) => {
 
   return (
     <div>
-      <div className="flex m-20 py-6 justify-center items-center">
-        <div className="w-72 bg-white drop-shadow-md rounded-lg flex flex-col">
-          <img
-            src={url}
-            className="object-cover h-48 rounded-tl-lg rounded-tr-lg"
-            alt={description}
-          />
-          <div className="px-5 py-3 space-y-2">
-            <h3 className="text-lg text-black">{name}</h3>
-            <div className="space-x-2">
-              <span className="px-3 py-0.5 border border-blue-500 text-[11px] text-blue-500">
-                Free Ship
-              </span>
-              <span className="px-3 py-0.5 border border-blue-500 text-[11px] text-blue-500">
-                7 Day Return
-              </span>
-            </div>
-            <p className="space-x-2">
-              <span className="text-2xl font-semibold text-black">
-                ${price}
-              </span>
-              <span className="text-sm line-through text-gray-500">$1000</span>
-              <span className="text-sm text-red-700">40% off</span>
-            </p>
-            <div className="flex justify-between items-center pt-3 pb-2">
-              <div>
-                <button
-                  className="px-4 py-2 bg-red-600 hover:bg-amber-600 text-center text-sm text-white rounded duration-300"
-                  // onClick={() => setModalShow(true)}
-                  onClick={() => goProduct(_id)}
-                  product={props.laptop}
-                  key={_id}
-                >
-                  Details
-                </button>
-                <button
-                  className="px-4 py-2 bg-red-600 hover:bg-amber-600 text-center text-sm text-white rounded duration-300"
-                  // onClick={() => setModalShow(true)}
-                  onClick={() => goProduct(_id)}
-                  product={props.laptop}
-                  key={_id}
-                >
-                  Details
-                </button>
+      <div
+        className="flex items-center bg-indigo-100 w-screen min-h-screen">
+        <div className="container ml-auto mr-auto flex flex-wrap items-start">
+          
+          <div className="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 lg:pl-2 lg:pr-2">
+            <div className="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
+              <figure className="mb-2">
+                <img
+                  src={url}
+                  alt=""
+                  className="h-64 ml-auto mr-auto"
+                />
+              </figure>
+              <div className="rounded-lg p-4 bg-purple-700 flex flex-col">
+                <div>
+                  <h5 className="text-white text-2xl font-bold leading-none">
+                    {name.slice(0, 20)}
+                  </h5>
+                  <span className="text-xs text-gray-400 leading-none">
+                    {/* {description.slice(0, 20)} */}
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <div className="text-lg text-white font-light">${price}</div>
+                  <button
+                    onClick={() => goProduct(_id)}
+                    product={props.laptop}
+                    key={_id}
+                    className="rounded-full bg-purple-900 text-white hover:bg-white hover:text-purple-900 hover:shadow-xl focus:outline-none w-10 h-10 flex ml-auto transition duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="stroke-current m-auto"
+                    >
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                  </button>
+                </div>
               </div>
-              <a
-                href="#"
-                title="Add to Favorites"
-                className="text-2xl text-gray-300 hover:text-red-500 duration-300"
-              >
-                &hearts;
-              </a>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -77,3 +85,7 @@ const Card = (props) => {
 };
 
 export default Card;
+
+// onClick={() => goProduct(_id)}
+// product={props.laptop}
+// key={_id}
