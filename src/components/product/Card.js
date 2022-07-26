@@ -27,57 +27,25 @@ const Card = (props) => {
 
   return (
     <div>
-      <div
-        className="flex items-center bg-indigo-100 w-screen min-h-screen">
-        <div className="container ml-auto mr-auto flex flex-wrap items-start">
-          
-          <div className="w-full md:w-1/2 lg:w-1/4 pl-5 pr-5 lg:pl-2 lg:pr-2">
-            <div className="bg-white rounded-lg m-h-64 p-2 transform hover:translate-y-2 hover:shadow-xl transition duration-300">
-              <figure className="mb-2">
-                <img
-                  src={url}
-                  alt=""
-                  className="h-64 ml-auto mr-auto"
-                />
-              </figure>
-              <div className="rounded-lg p-4 bg-purple-700 flex flex-col">
-                <div>
-                  <h5 className="text-white text-2xl font-bold leading-none">
-                    {name.slice(0, 20)}
-                  </h5>
-                  <span className="text-xs text-gray-400 leading-none">
-                    {/* {description.slice(0, 20)} */}
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <div className="text-lg text-white font-light">${price}</div>
-                  <button
-                    onClick={() => goProduct(_id)}
-                    product={props.laptop}
-                    key={_id}
-                    className="rounded-full bg-purple-900 text-white hover:bg-white hover:text-purple-900 hover:shadow-xl focus:outline-none w-10 h-10 flex ml-auto transition duration-300"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="stroke-current m-auto"
-                    >
-                      <line x1="12" y1="5" x2="12" y2="19"></line>
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+      <div className="h-24 min-h-screen bg-black flex items-center">
+        <div className="container mx-auto p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
+          <img className="rounded-xl w-full h-48 object-cover" src={url} alt="" />
+          <div className="flex justify-between items-center text-black">
+            <div>
+              <h1 className="mt-5 text-2xl font-semibold">{name.slice(0, 15)}</h1>
+              <p className="mt-2">${price}</p>
+            </div>
+            <div>
+              <button
+                className="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 "
+                onClick={() => goProduct(_id)}
+                product={props.laptop}
+                key={_id}
+              >
+                Buy Now
+              </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
