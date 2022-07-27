@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 const Contact = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -24,7 +25,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-screen-md mx-auto p-5 mt-5 pt-6 text-black">
+    <div className={`max-w-screen-md mx-auto p-5 mt-5 pt-6   `}>
       <div className="text-center mb-16">
         {/* <p className="mt-4 text-3xl md:text-5xl lg:text-7xl text-center leading-7 text-indigo-500 font-regular ">
           Contact
@@ -34,20 +35,23 @@ const Contact = () => {
         </h3>
       </div>
 
-      <form className="w-full " onSubmit={sendEmail}>
+      <form
+        className={`w-full ${isDarkMode ? "text-white" : "text-black"}`}
+        onSubmit={sendEmail}
+      >
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide  text-xs font-bold mb-2"
               for="grid-first-name"
             >
               First Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200  border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
-              placeholder="Jane"
+              placeholder="Rafath"
             />
             <p className="text-red-500 text-xs italic">
               Please fill out this field.
@@ -55,32 +59,32 @@ const Contact = () => {
           </div>
           <div className="w-full md:w-1/2 px-3">
             <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide  text-xs font-bold mb-2"
               for="grid-last-name"
             >
               Last Name
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-last-name"
               type="text"
-              placeholder="Doe"
+              placeholder="Auvee"
             />
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide  text-xs font-bold mb-2"
               for="grid-password"
             >
               Email Address
             </label>
             <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-email"
               type="email"
-              placeholder="********@*****.**"
+              placeholder="rafath.auvee@gmail.com"
             />
           </div>
         </div>
@@ -88,14 +92,15 @@ const Contact = () => {
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
             <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide  text-xs font-bold mb-2"
               for="grid-password"
             >
               Your Message
             </label>
             <textarea
               rows="10"
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              placeholder="You are hired!"
             ></textarea>
           </div>
           <div className="flex justify-between w-full px-3">

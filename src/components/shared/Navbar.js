@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "./../../context/ThemeContext";
 import DarkModeToggle from "./../utilities/DarkModeToggle";
-
+import logo from "../../image/logo.png";
 const Navbar = () => {
-
   const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
 
   const userMenu = (
@@ -47,15 +46,16 @@ const Navbar = () => {
               {userMenu}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Foundation Futuristic Technologies</a>
+          <img src={logo} alt="" />
+          {/* <a className="btn btn-ghost normal-case text-xl">Foundation Futuristic Technologies</a> */}
         </div>
-        <div className="navbar-end hidden lg:flex ">
+        <div className="navbar-center hidden lg:flex ">
           <ul className="menu menu-horizontal p-0">{userMenu}</ul>
         </div>
-        <DarkModeToggle onToggle={setIsDarkMode} />
-        {/* <div className="navbar-end">
-          <a className="btn">Get started</a>
-        </div> */}
+
+        <div className="navbar-end">
+          <DarkModeToggle onToggle={setIsDarkMode} />
+        </div>
       </div>
     </div>
   );

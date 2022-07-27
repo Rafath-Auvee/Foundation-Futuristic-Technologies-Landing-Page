@@ -42,7 +42,7 @@ const Gallery = () => {
 
   return (
     <div className="slideshow">
-      <h2 className="font-bold text-black mb-5 text-3xl md:text-4xl lg:text-5xl text-center mb-5 pb-5">Our Best Laptop Collection</h2>
+      <h2 className="font-bold mb-5 text-3xl md:text-4xl lg:text-5xl text-center mb-5 pb-5">Our Best Laptop Collection</h2>
       <div
         className="slideshowSlider"
         style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}

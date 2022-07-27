@@ -4,13 +4,14 @@ const Services = () => {
   return (
     <div>
       <div
-        className="px-5 sm:px-10 md:px-20 lg:px-10 xl:px-20 py-8 mt-10 text-black"
+        className="px-5 sm:px-10 md:px-20 lg:px-10 xl:px-20 py-8 mt-10 "
         id="features"
       >
         <div className="max-w-screen-xl mx-auto">
-          <h3 className="leading-none font-black text-3xl">Features</h3>
+          <h3 className="leading-none  text-3xl">Features</h3>
 
-          <div className="flex flex-col items-center flex-wrap lg:flex-row lg:items-stretch lg:flex-no-wrap lg:justify-between">
+          <div className="flex flex-col items-center flex-wrap lg:flex-row lg:items-stretch lg:flex-no-wrap lg:justify-between text-black">
+            
             <div className="w-full max-w-sm mt-6 lg:mt-8 bg-gray-100 rounded shadow-lg p-12 lg:p-8 lg:mx-4 xl:p-12">
               <div className="p-4 inline-block bg-indigo-200 rounded-lg">
                 <svg

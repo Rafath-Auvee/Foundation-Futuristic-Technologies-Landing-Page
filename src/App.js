@@ -9,6 +9,7 @@ import Cursor from "./components/shared/Cursor";
 import { ThemeContext } from "./context/ThemeContext";
 import { useState } from "react";
 import Footer from "./components/product/Footer";
+import AnimatedCursor from "react-animated-cursor";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -18,7 +19,7 @@ function App() {
         className={`${
           isDarkMode
             ? "bg-black text-white ease-in duration-500 "
-            : "bg-gray-100 text-black ease-in duration-500 "
+            : "bg-gray-300 text-black ease-in duration-500 "
         }`}
       >
         <div className="App">
@@ -29,8 +30,33 @@ function App() {
             <Route path="/products/:id" element={<ProductDetail />} />
           </Routes>
           {/* <Cursor /> */}
-          <Footer/>
+          <Footer />
         </div>
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={12}
+          color={`${
+            isDarkMode
+              ? "252, 250, 250 "
+              : "0, 0, 0 "
+          }`}
+          outerAlpha={2}
+          innerScale={0.7}
+          outerScale={5}
+          clickables={[
+            "a",
+            'input[type="text"]',
+            'input[type="email"]',
+            'input[type="number"]',
+            'input[type="submit"]',
+            'input[type="image"]',
+            "label[for]",
+            "select",
+            "textarea",
+            "button",
+            ".link",
+          ]}
+        />
       </div>
     </ThemeContext.Provider>
   );
