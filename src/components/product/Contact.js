@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-screen-md mx-auto p-5 mt-5 pt-6">
+    <div className="max-w-screen-md mx-auto p-5 mt-5 pt-6 text-black">
       <div className="text-center mb-16">
         {/* <p className="mt-4 text-3xl md:text-5xl lg:text-7xl text-center leading-7 text-indigo-500 font-regular ">
           Contact
@@ -34,7 +34,7 @@ const Contact = () => {
         </h3>
       </div>
 
-      <form className="w-full" onSubmit={sendEmail}>
+      <form className="w-full " onSubmit={sendEmail}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label

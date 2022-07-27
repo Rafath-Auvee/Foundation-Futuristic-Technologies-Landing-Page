@@ -7,6 +7,7 @@ import Card from "./../product/Card";
 import Services from "./../shared/Services";
 import Hero from "./../shared/Hero";
 import Contact from "./../product/Contact";
+import Gallery from "./../product/Gallery";
 
 const Home = () => {
   return (
@@ -30,8 +31,9 @@ const Home = () => {
           </div>
         </div>
         <FeaturesBlocks />
+        <Gallery/>
         <Services />
-        {/* <Contact/> */}
+        <Contact/>
       </div>
     </div>
   );

@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "./../../context/ThemeContext";
+import DarkModeToggle from "./../utilities/DarkModeToggle";
 
 const Navbar = () => {
+
+  const { isDarkMode, setIsDarkMode } = useContext(ThemeContext);
+
   const userMenu = (
     <>
       <li>
@@ -47,6 +52,7 @@ const Navbar = () => {
         <div className="navbar-end hidden lg:flex ">
           <ul className="menu menu-horizontal p-0">{userMenu}</ul>
         </div>
+        <DarkModeToggle onToggle={setIsDarkMode} />
         {/* <div className="navbar-end">
           <a className="btn">Get started</a>
         </div> */}

@@ -1,159 +1,112 @@
-import React from "react";
-import "./Cursor.css"
+import { useEffect, useRef } from 'react';
+// import getImage from '../../image';
+import Test from './Test';
+import './Cursor.css';
 
-function Cursor() {
-  const cursorDotOutline = React.useRef();
-  const cursorDot = React.useRef();
-  const requestRef = React.useRef();
-  const previousTimeRef = React.useRef();
-  let [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
-  const [width, setWidth] = React.useState(window.innerWidth);
-  const [height, setHeight] = React.useState(window.innerHeight);
-  let cursorVisible = React.useState(false);
-  let cursorEnlarged = React.useState(false);
+const Cursor = () => {
+  const delay = 18;
 
-  /**
-   * Mouse Moves
-   */
-  const onMouseMove = event => {
-    const { pageX: x, pageY: y } = event;
-    setMousePosition({ x, y });
-    positionDot(event);
-  };
-  const onMouseEnter = () => {
-    cursorVisible.current = true;
-    toggleCursorVisibility();
-  };
-  const onMouseLeave = () => {
-    cursorVisible.current = false;
-    toggleCursorVisibility();
-  };
-  const onMouseDown = () => {
-    cursorEnlarged.current = true;
-    toggleCursorSize();
-  };
-  const onMouseUp = () => {
-    cursorEnlarged.current = false;
-    toggleCursorSize();
-  };
-  const onResize = event => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-  };
+  const dot = useRef(null);
+  const dotOutline = useRef(null);
 
-  /**
-   * Hooks
-   */
-  React.useEffect(() => {
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseenter", onMouseEnter);
-    document.addEventListener("mouseleave", onMouseLeave);
-    document.addEventListener("mousedown", onMouseDown);
-    document.addEventListener("mouseup", onMouseUp);
-    window.addEventListener("resize", onResize);
-    requestRef.current = requestAnimationFrame(animateDotOutline);
-    
-    // Handle Link Hovers
-    handleLinkHovers();
+  const cursorVisible = useRef(true);
+  const cursorEnlarged = useRef(false);
+
+  const endX = useRef(window.innerWidth / 2);
+  const endY = useRef(window.innerHeight / 2);
+  const _x = useRef(0);
+  const _y = useRef(0);
+
+  const requestRef = useRef(null);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', mouseOverEvent);
+    document.addEventListener('mouseup', mouseOutEvent);
+    document.addEventListener('mousemove', mouseMoveEvent);
+    document.addEventListener('mouseenter', mouseEnterEvent);
+    document.addEventListener('mouseleave', mouseLeaveEvent);
+
+    animateDotOutline();
 
     return () => {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseenter", onMouseEnter);
-      document.removeEventListener("mouseleave", onMouseLeave);
-      document.removeEventListener("mousedown", onMouseDown);
-      document.removeEventListener("mouseup", onMouseUp);
-      window.removeEventListener("resize", onResize);
+      document.removeEventListener('mousedown', mouseOverEvent);
+      document.removeEventListener('mouseup', mouseOutEvent);
+      document.removeEventListener('mousemove', mouseMoveEvent);
+      document.removeEventListener('mouseenter', mouseEnterEvent);
+      document.removeEventListener('mouseleave', mouseLeaveEvent);
+
       cancelAnimationFrame(requestRef.current);
     };
   }, []);
 
-  let { x, y } = mousePosition;
-  const winDimensions = { width, height };
-  let endX = winDimensions.width / 2;
-  let endY = winDimensions.height / 2;
+  const toggleCursorVisibility = () => {
+    if (cursorVisible.current) {
+      dot.current.style.opacity = 1;
+      dotOutline.current.style.opacity = 1;
+    } else {
+      dot.current.style.opacity = 0;
+      dotOutline.current.style.opacity = 0;
+    }
+  };
 
-  /**
-   * Position Dot (cursor)
-   * @param {event}
-   */
-  function positionDot(e) {
+  const toggleCursorSize = () => {
+    if (cursorEnlarged.current) {
+      dot.current.style.transform = 'translate(-50%, -50%) scale(0.75)';
+      dotOutline.current.style.transform = 'translate(-50%, -50%) scale(1.5)';
+    } else {
+      dot.current.style.transform = 'translate(-50%, -50%) scale(1)';
+      dotOutline.current.style.transform = 'translate(-50%, -50%) scale(1)';
+    }
+  };
+
+  const mouseOverEvent = () => {
+    cursorEnlarged.current = true;
+    toggleCursorSize();
+  };
+
+  const mouseOutEvent = () => {
+    cursorEnlarged.current = false;
+    toggleCursorSize();
+  };
+
+  const mouseEnterEvent = () => {
     cursorVisible.current = true;
     toggleCursorVisibility();
-    // Position the dot
-    endX = e.pageX;
-    endY = e.pageY;
-    cursorDot.current.style.top = endY + "px";
-    cursorDot.current.style.left = endX + "px";
-  }
+  };
 
-  /**
-   * Toggle Cursor Visiblity
-   */
-  function toggleCursorVisibility() {
-    if (cursorVisible.current) {
-      cursorDot.current.style.opacity = 1;
-      cursorDotOutline.current.style.opacity = 1;
-    } else {
-      cursorDot.current.style.opacity = 0;
-      cursorDotOutline.current.style.opacity = 0;
-    }
-  }
+  const mouseLeaveEvent = () => {
+    cursorVisible.current = false;
+    toggleCursorVisibility();
+  };
 
-  /**
-   * Toggle Cursor Size
-   */
-  function toggleCursorSize() {
-    if (cursorEnlarged.current) {
-      cursorDot.current.style.transform = "translate(-50%, -50%) scale(0.7)";
-      cursorDotOutline.current.style.transform =
-        "translate(-50%, -50%) scale(5)";
-    } else {
-      cursorDot.current.style.transform = "translate(-50%, -50%) scale(1)";
-      cursorDotOutline.current.style.transform =
-        "translate(-50%, -50%) scale(1)";
-    }
-  }
+  const mouseMoveEvent = e => {
+    cursorVisible.current = true;
+    toggleCursorVisibility();
 
-  /**
-   * Handle LInks
-   * Applies mouseover/out hooks on all links
-   * to trigger cursor animation
-   */
-  function handleLinkHovers() {
-    document.querySelectorAll("a").forEach(el => {
-      el.addEventListener("mouseover", () => {
-        cursorEnlarged.current = true;
-        toggleCursorSize();
-      });
-      el.addEventListener("mouseout", () => {
-        cursorEnlarged.current = false;
-        toggleCursorSize();
-      });
-    });
-  }
+    endX.current = e.pageX;
+    endY.current = e.pageY;
 
-  /**
-   * Animate Dot Outline
-   * Aniamtes cursor outline with trailing effect.
-   * @param {number} time
-   */
-  const animateDotOutline = time => {
-    if (previousTimeRef.current !== undefined) {
-      x += (endX - x) / 8;
-      y += (endY - y) / 8;
-      cursorDotOutline.current.style.top = y + "px";
-      cursorDotOutline.current.style.left = x + "px";
-    }
-    previousTimeRef.current = time;
+    dot.current.style.top = endY.current + 'px';
+    dot.current.style.left = endX.current + 'px';
+  };
+
+  const animateDotOutline = () => {
+    _x.current += (endX.current - _x.current) / delay;
+    _y.current += (endY.current - _y.current) / delay;
+
+    dotOutline.current.style.top = _y.current + 'px';
+    dotOutline.current.style.left = _x.current + 'px';
+
     requestRef.current = requestAnimationFrame(animateDotOutline);
   };
 
   return (
     <>
-      <div ref={cursorDotOutline} id="cursor-dot-outline" />
-      <div ref={cursorDot} id="cursor-dot" />
+      <div ref={dotOutline} className="cursor-dot-outline"></div>
+      <div ref={dot} className="cursor-dot"></div>
+{/*  */}
     </>
   );
-}
+};
 
-export default Cursor
+export default Cursor;

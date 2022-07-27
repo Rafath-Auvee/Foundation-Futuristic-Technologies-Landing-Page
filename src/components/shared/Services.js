@@ -4,7 +4,7 @@ const Services = () => {
   return (
     <div>
       <div
-        className="px-5 sm:px-10 md:px-20 lg:px-10 xl:px-20 py-8 mt-10"
+        className="px-5 sm:px-10 md:px-20 lg:px-10 xl:px-20 py-8 mt-10 text-black"
         id="features"
       >
         <div className="max-w-screen-xl mx-auto">
