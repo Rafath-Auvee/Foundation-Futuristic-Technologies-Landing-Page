@@ -10,6 +10,7 @@ import { ThemeContext } from "./context/ThemeContext";
 import { useState } from "react";
 import Footer from "./components/product/Footer";
 import AnimatedCursor from "react-animated-cursor";
+import NotFound from "./components/shared/NotFound";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -28,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Product />} />
             <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="*" element={<NotFound></NotFound>} />
           </Routes>
           {/* <Cursor /> */}
           <Footer />
