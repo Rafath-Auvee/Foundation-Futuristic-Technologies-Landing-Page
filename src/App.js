@@ -34,7 +34,7 @@ function App() {
         </div>
         <AnimatedCursor
           innerSize={8}
-          outerSize={12}
+          outerSize={8}
           color={`${
             isDarkMode
               ? "252, 250, 250 "
