@@ -3,8 +3,9 @@ import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Navbar from "./components/shared/Navbar";
-import Product from "./components/product/Product";
+
 import ProductDetail from "./components/product/ProductDetail";
+import Product from "./components/pages/Product";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import "./Card.css"
 const Card = (props) => {
   const {
     _id,
@@ -27,7 +27,7 @@ const Card = (props) => {
 
   return (
     <div>
-      <div className="h-24 min-h-screen bg-black flex items-center">
+      <div className="custom-height flex items-center">
         <div className="container mx-auto p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
           <img className="rounded-xl w-full h-48 object-cover" src={url} alt="" />
           <div className="flex justify-between items-center text-black">
