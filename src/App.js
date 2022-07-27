@@ -6,6 +6,7 @@ import Navbar from "./components/shared/Navbar";
 
 import ProductDetail from "./components/product/ProductDetail";
 import Product from "./components/pages/Product";
+import Cursor from "./components/shared/Cursor";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/products" element={<Product />} />
         <Route path="/products/:id" element={<ProductDetail />} />
       </Routes>
+      <Cursor/>
     </div>
   );
 }
