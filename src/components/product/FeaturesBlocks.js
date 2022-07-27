@@ -9,7 +9,7 @@ function FeaturesBlocks() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="text-6xl font-bold text-black mb-4">Why Foundation Futuristic Technologies?</h2>
+            <h2 className="md:text-6xl font-bold text-black mb-4 xm:text-3xl">Why Foundation Futuristic Technologies?</h2>
             <p className="text-xl text-black">
             Foundation Futuristic Technologies is a consumer electronics trade-in service, founded in 2008, that endeavors to reshape the way we buy and sell electronic goods.
             </p>
