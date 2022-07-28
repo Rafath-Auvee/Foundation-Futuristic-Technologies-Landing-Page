@@ -1,44 +1,31 @@
 import React from "react";
-import "./NotFound.css"
+// import "./NotFound.css"
+import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="notFound">
-      <header className="top-header"></header>
-
-      <div>
-        <div className="starsec"></div>
-        <div className="starthird"></div>
-        <div className="starfourth"></div>
-        <div className="starfifth"></div>
-      </div>
-
-      <div className="lamp__wrap">
-        <div className="lamp">
-          <div className="cable"></div>
-          <div className="cover"></div>
-          <div className="in-cover">
-            <div className="bulb"></div>
-          </div>
-          <div className="light"></div>
+    <div className="bg-indigo-900 relative overflow-hidden h-screen">
+         {" "}
+      <img
+        src="https://external-preview.redd.it/4MddL-315mp40uH18BgGL2-5b6NIPHcDMBSWuN11ynM.jpg?width=960&crop=smart&auto=webp&s=b98d54a43b3dac555df398588a2c791e0f3076d9"
+        className="absolute h-full w-full object-cover"
+      />
+          <div className="inset-0 bg-black opacity-25 absolute">    </div>   {" "}
+      <div className="container mx-auto px-6 md:px-12 relative z-10 flex items-center py-32 xl:py-40">
+               {" "}
+        <div className="w-full font-mono flex flex-col items-center relative z-10">
+                     {" "}
+          <h1 className="font-extrabold text-5xl text-center text-white leading-tight mt-4">
+              You are all alone here          {" "}
+          </h1>
+                     {" "}
+          <p className="font-extrabold text-8xl my-44 text-white animate-bounce">
+                            404            {" "}
+          </p>
+                 {" "}
         </div>
+           {" "}
       </div>
-
-      <section className="error">
-        <div className="error__content">
-          <div className="error__message message">
-            <h1 className="message__title">Page Not Found</h1>
-            <p className="message__text">
-              We're sorry, the page you were looking for isn't found here. The
-              link you followed may either be broken or no longer exists. Please
-              try again, or take a look at our.
-            </p>
-          </div>
-          <div className="error__nav e-nav">
-            <a href="" target="_blanck" className="e-nav__link"></a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
