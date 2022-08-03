@@ -10,4 +10,4 @@
 - Slider Image
 - Responsive Cards
 - Dynamic Routes
-
+- Day Night Cycle
